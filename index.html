@@ -251,7 +251,7 @@
             overflow: hidden;
         }
 
-/* VIDEO BACKGROUND */
+/* VIDEO */
 .hero-video {
   position: absolute;
   inset: 0;
@@ -260,18 +260,18 @@
   object-fit: cover;
   z-index: 0;
 
-  /* Optional luxury effect */
-  animation: zoomFade 6s ease-in-out forwards;
+  /* 🔥 DARKNESS CONTROL (OPTIONAL) */
+  filter: brightness(0.7);
 }
 
-/* (DARK OVERLAY) */
+/* 🔥 MAIN DARK OVERLAY — THIS IS WHERE YOU ADJUST */
 .hero-bg::before {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.4)
+    rgba(0, 0, 0, 0.75),  /* 👈 MAKE THIS HIGHER TO DARKEN */
+    rgba(0, 0, 0, 0.55)   /* 👈 MAKE THIS HIGHER TO DARKEN */
   );
   z-index: 1;
 }
