@@ -251,21 +251,7 @@
             overflow: hidden;
         }
 
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
-
-        }
-
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
-        }
-        /* VIDEO BACKGROUND */
+/* VIDEO BACKGROUND */
 .hero-video {
   position: absolute;
   inset: 0;
@@ -278,8 +264,59 @@
   animation: zoomFade 6s ease-in-out forwards;
 }
 
-/* DARK OVERLAY (replaces brightness filter) */     
-       .hero-particles {
+/* DARK OVERLAY (replaces brightness filter) */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* CONTENT ON TOP */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* OPTIONAL ZOOM + FADE */
+@keyframes zoomFade {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
+
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
+        }
+
+        .hero-particles {
             position: absolute;
             inset: 0;
             z-index: 1;
@@ -359,18 +396,7 @@
             opacity: 0;
             animation: fadeUp 1s 1.2s forwards;
         }
-        /* OPTIONAL ZOOM + FADE */
-@keyframes zoomFade {
-  0% {
-    opacity: 0;
-    transform: scale(1.08);
-    filter: blur(6px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
-  }
+
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
