@@ -662,195 +662,181 @@
       color: #111;
     }
 
-    /* ===== collection ===== */
-    .collection-section {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--white);
-      overflow: hidden;
-    }
+ /* ===== COLLECTIONS (ADVANCED LUXURY) ===== */
+.collections {
+  background: var(--cream);
+  padding: 100px 0;
+}
 
-    .collection::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.65);
-      z-index: 1;
-    }
+.collections-grid {
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 60px 40px;
+  scrollbar-width: none; /* Firefox */
+}
 
-    .collection- img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
+.collections-grid::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
 
-    .collection-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-      padding: 20px;
-    }
+/* CARD */
+.collection-card {
+  flex: 0 0 340px; /* card width */
+  scroll-snap-align: start;
+    
+ /* glow vars */
+  --x: 50%;
+  --y: 50%;
+}
 
-    .collection-content h1 {
-      font-size: 64px;
-      letter-spacing: 3px;
-      margin-bottom: 16px;
-      font-family: "Playfair Display", serif;
-    }
+/* INNER */
+.collection-card-inner {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #000;
+}
 
-    .collection-content p {
-      font-size: 18px;
-      line-height: 1.7;
-      opacity: 0.9;
-    }
+/* IMAGE */
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: 
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.6s ease;
+}
 
-    /* ===== PRODUCTS SECTION ===== */
-    .products-section {
-      padding: 100px 60px;
-    }
+/* IMAGE HOVER */
+.collection-card:hover img {
+  transform: scale(1.12);
+  filter: brightness(0.6);
+}
 
-    .products-title {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 60px;
-      font-family: "Playfair Display", serif;
-    }
+/* OVERLAY */
+.collection-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.15) 0%,
+      rgba(0,0,0,0.85) 100%
+    );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 42px;
+  transition: background 0.6s ease;
+  z-index: 2;
+}
 
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 40px;
-    }
+.collection-card:hover .collection-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.35) 0%,
+      rgba(0,0,0,0.95) 100%
+    );
+}
 
-    .product-card {
-      background: var(--white);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
+/* NAME */
+.collection-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 10px;
+  transform: translateY(24px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-    }
+.collection-card:hover .collection-name {
+  transform: translateY(0);
+}
 
-    .product-card img {
-      width: 100%;
-      height: 340px;
-      object-fit: cover;
-    }
+/* DESCRIPTION */
+.collection-desc {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.75);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.6s ease,
+    opacity 0.6s ease;
+}
 
-    .product-info {
-      padding: 18px;
-      text-align: center;
-    }
+.collection-card:hover .collection-desc {
+  max-height: 120px;
+  opacity: 1;
+}
 
-    .product-info h3 {
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
+/* LINK */
+.collection-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 18px;
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s ease 0.15s,
+    transform 0.6s ease 0.15s,
+    color 0.3s ease;
+}
 
-    .product-info span {
-      font-size: 14px;
-      color: var(--gold);
-    }
+.collection-card:hover .collection-link {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 42px;
-      }
+.collection-link:hover {
+  color: #fff;
+}
 
-      .products-section {
-        padding: 70px 24px;
-      }
-    }
-  </style>
-</head>
+/* SUBTLE SHADOW */
+.collection-card-inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 -80px 120px rgba(0,0,0,0.6);
+  pointer-events: none;
+}
+        /* === CURSOR FOLLOW GLOW === */
+.collection-card {
+  --x: 50%;
+  --y: 50%;
+}
 
-<body>
+.collection-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--x) var(--y),
+    rgba(255,255,255,0.08),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 3;
+  pointer-events: none;
+}
 
- /* ===== JEWELLERY collection ===== */
-  <section class="collection-page">
-    <img src="jewellery-page.jpg" alt="Jewellery Collection">
-    <div class="page-content">
-      <h1>Jewellery</h1>
-      <p>
-        Timeless elegance crafted with precision, designed to elevate every moment.
-      </p>
-    </div>
-  </section>
+.collection-card:hover::before {
+  opacity: 1;
+}
 
-  <!-- ================= JEWELLERY PRODUCTS ================= -->
-  <section class="products-section">
-    <h2 class="products-title">Jewellery Collection</h2>
-
-    <div class="products-grid">
-      <div class="product-card">
-        <img src="jewel-1.jpg" alt="">
-        <div class="product-info">
-          <h3>Gold Necklace</h3>
-          <span>PKR 120,000</span>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="jewel-2.jpg" alt="">
-        <div class="product-info">
-          <h3>Diamond Ring</h3>
-          <span>PKR 98,000</span>
-        </div>
-      </div>
-
-      <!-- Add more jewellery products here -->
-    </div>
-  </section>
-
-  <!-- ================= WATCHES section ================= -->
-  <section class="collection-page">
-    <img src="watches-page.jpg" alt="Watches Collection">
-    <div class="page-content">
-      <h1>Watches</h1>
-      <p>
-        Precision engineering meets luxury craftsmanship for timeless performance.
-      </p>
-    </div>
-  </section>
-
-  <!-- ================= WATCHES PRODUCTS ================= -->
-  <section class="products-section">
-    <h2 class="products-title">Watch Collection</h2>
-
-    <div class="products-grid">
-      <div class="product-card">
-        <img src="watch-1.jpg" alt="">
-        <div class="product-info">
-          <h3>Classic Chronograph</h3>
-          <span>PKR 3800</span>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="watch-2.jpg" alt="">
-        <div class="product-info">
-          <h3>Luxury Automatic</h3>
-          <span>PKR 3000</span>
-        </div>
-      </div>
-
-      <!-- Add more watches here -->
-    </div>
-  </section>
-
-</body>
-</html>
         /* ===== GALLERY ===== */
         .gallery {
             background: var(--cream-dark);
