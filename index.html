@@ -662,8 +662,8 @@
       color: #111;
     }
 
-    /* ===== FULL SCREEN collection ===== */
-    .collection-hero {
+    /* ===== collection ===== */
+    .collection-section {
       position: relative;
       height: 100vh;
       display: flex;
@@ -674,7 +674,7 @@
       overflow: hidden;
     }
 
-    .collection-hero::before {
+    .collection::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -682,7 +682,7 @@
       z-index: 1;
     }
 
-    .collection-hero img {
+    .collection- img {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -691,21 +691,21 @@
       z-index: 0;
     }
 
-    .hero-content {
+    .collection-content {
       position: relative;
       z-index: 2;
       max-width: 700px;
       padding: 20px;
     }
 
-    .hero-content h1 {
+    .collection-content h1 {
       font-size: 64px;
       letter-spacing: 3px;
       margin-bottom: 16px;
       font-family: "Playfair Display", serif;
     }
 
-    .hero-content p {
+    .collection-content p {
       font-size: 18px;
       line-height: 1.7;
       opacity: 0.9;
@@ -777,10 +777,10 @@
 
 <body>
 
-  <!-- ================= JEWELLERY collection ================= -->
-  <section class="collection-hero">
-    <img src="jewellery-hero.jpg" alt="Jewellery Collection">
-    <div class="hero-content">
+ /* ===== JEWELLERY collection ===== */
+  <section class="collection-page">
+    <img src="jewellery-page.jpg" alt="Jewellery Collection">
+    <div class="page-content">
       <h1>Jewellery</h1>
       <p>
         Timeless elegance crafted with precision, designed to elevate every moment.
@@ -813,10 +813,10 @@
     </div>
   </section>
 
-  <!-- ================= WATCHES HERO ================= -->
-  <section class="collection-hero">
-    <img src="watches-hero.jpg" alt="Watches Collection">
-    <div class="hero-content">
+  <!-- ================= WATCHES section ================= -->
+  <section class="collection-page">
+    <img src="watches-page.jpg" alt="Watches Collection">
+    <div class="page-content">
       <h1>Watches</h1>
       <p>
         Precision engineering meets luxury craftsmanship for timeless performance.
