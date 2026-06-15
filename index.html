@@ -685,12 +685,7 @@
 .collection-card {
   flex: 0 0 340px; /* card width */
   scroll-snap-align: start;
-    
- /* glow vars */
-  --x: 50%;
-  --y: 50%;
 }
-
 /* INNER */
 .collection-card-inner {
   position: relative;
@@ -836,68 +831,6 @@
 .collection-card:hover::before {
   opacity: 1;
 }
-
-        /* ===== GALLERY ===== */
-        .gallery {
-            background: var(--cream-dark);
-            padding-bottom: 0;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: 300px 300px;
-            gap: 15px;
-        }
-
-        .gallery-item {
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .gallery-item:nth-child(1) {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.06);
-        }
-
-        .gallery-item-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.4s;
-        }
-
-        .gallery-item:hover .gallery-item-overlay {
-            background: rgba(0,0,0,0.3);
-        }
-
-        .gallery-item-overlay i {
-            color: var(--white);
-            font-size: 24px;
-            opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.4s;
-        }
-
-        .gallery-item:hover .gallery-item-overlay i {
-            opacity: 1;
-            transform: scale(1);
-        }
 
         /* ===== TESTIMONIALS ===== */
         .testimonials {
@@ -1687,39 +1620,6 @@
                 </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="section gallery" id="gallery">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Visual Stories</span>
-                <h2 class="section-title">Our <em>Lookbook</em></h2>
-                <div class="section-divider"></div>
-                <p class="section-desc">A glimpse into the world of AKSS — where every piece tells a story and every moment is dressed in elegance.</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item reveal" data-src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=1200&q=80">
-                    <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=800&q=80" alt="Gallery 1" loading="lazy">
-                    <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
-                </div>
-                <div class="gallery-item reveal reveal-delay-1" data-src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=1200&q=80">
-                    <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=800&q=80" alt="Gallery 2" loading="lazy">
-                    <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
-                </div>
-                <div class="gallery-item reveal reveal-delay-2" data-src="https://images.unsplash.com/photo-1509941943102-10c232535736?w=1200&q=80">
-                    <img src="https://images.unsplash.com/photo-1509941943102-10c232535736?w=800&q=80" alt="Gallery 3" loading="lazy">
-                    <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
-                </div>
-                <div class="gallery-item reveal reveal-delay-1" data-src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=1200&q=80">
-                    <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=800&q=80" alt="Gallery 4" loading="lazy">
-                    <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
-                </div>
-                <div class="gallery-item reveal reveal-delay-2" data-src="https://images.unsplash.com/photo-1583292650898-7d22cd27ca6f?w=1200&q=80">
-                    <img src="https://images.unsplash.com/photo-1583292650898-7d22cd27ca6f?w=800&q=80" alt="Gallery 5" loading="lazy">
-                    <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Testimonials -->
     <section class="section testimonials" id="testimonials">
