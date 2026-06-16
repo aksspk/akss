@@ -696,175 +696,118 @@ slider.addEventListener('mousemove', e => {
       color: #111;
     }
 
- /* ===== COLLECTIONS (ADVANCED LUXURY) ===== */
-.collections {
-  background: var(--cream);
-  padding: 100px 0;
-}
+ /* ===== COLLECTIONS ===== */
+        .collections {
+            background: var(--cream);
+        }
 
-.collections-grid {
-  display: flex;
-  gap: 32px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 20px 60px 40px;
-  scrollbar-width: none; /* Firefox */
-}
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
 
-.collections-grid::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
+        .collection-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            group: true;
+        }
 
-/* CARD */
-.collection-card {
-  flex: 0 0 340px; /* card width */
-  scroll-snap-align: start;
-}
-/* INNER */
-.collection-card-inner {
-  position: relative;
-  height: 560px;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #000;
-}
+        .collection-card-inner {
+            position: relative;
+            height: 550px;
+            overflow: hidden;
+        }
 
-/* IMAGE */
-.collection-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1);
-  transition: 
-    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.6s ease;
-}
+        .collection-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s;
+        }
 
-/* IMAGE HOVER */
-.collection-card:hover img {
-  transform: scale(1.12);
-  filter: brightness(0.6);
-}
+        .collection-card:hover img {
+            transform: scale(1.08);
+            filter: brightness(0.7);
+        }
 
-/* OVERLAY */
-.collection-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,0.15) 0%,
-      rgba(0,0,0,0.85) 100%
-    );
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 42px;
-  transition: background 0.6s ease;
-  z-index: 2;
-}
+        .collection-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            transition: all 0.5s;
+        }
 
-.collection-card:hover .collection-overlay {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,0.35) 0%,
-      rgba(0,0,0,0.95) 100%
-    );
-}
+        .collection-card:hover .collection-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+        }
 
-/* NAME */
-.collection-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  color: #fff;
-  margin-bottom: 10px;
-  transform: translateY(24px);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
+        .collection-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: rgba(255,255,255,0.1);
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            line-height: 1;
+        }
 
-.collection-card:hover .collection-name {
-  transform: translateY(0);
-}
+        .collection-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--white);
+            margin-bottom: 8px;
+            transform: translateY(20px);
+            transition: transform 0.5s;
+        }
 
-/* DESCRIPTION */
-.collection-desc {
-  font-size: 14px;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.75);
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition:
-    max-height 0.6s ease,
-    opacity 0.6s ease;
-}
+        .collection-card:hover .collection-name {
+            transform: translateY(0);
+        }
 
-.collection-card:hover .collection-desc {
-  max-height: 120px;
-  opacity: 1;
-}
+        .collection-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s, opacity 0.5s;
+            opacity: 0;
+        }
 
-/* LINK */
-.collection-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--gold-light);
-  text-decoration: none;
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-top: 18px;
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.6s ease 0.15s,
-    transform 0.6s ease 0.15s,
-    color 0.3s ease;
-}
+        .collection-card:hover .collection-desc {
+            max-height: 100px;
+            opacity: 1;
+        }
 
-.collection-card:hover .collection-link {
-  opacity: 1;
-  transform: translateY(0);
-}
+        .collection-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold-light);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 15px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s 0.1s;
+        }
 
-.collection-link:hover {
-  color: #fff;
-}
+        .collection-card:hover .collection-link {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
-/* SUBTLE SHADOW */
-.collection-card-inner::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  box-shadow: inset 0 -80px 120px rgba(0,0,0,0.6);
-  pointer-events: none;
-}
-        /* === CURSOR FOLLOW GLOW === */
-.collection-card {
-  --x: 50%;
-  --y: 50%;
-}
-
-.collection-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    600px circle at var(--x) var(--y),
-    rgba(255,255,255,0.08),
-    transparent 40%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.collection-card:hover::before {
-  opacity: 1;
-}
+        .collection-link:hover {
+            color: var(--white);
+        }
 
         /* ===== TESTIMONIALS ===== */
         .testimonials {
